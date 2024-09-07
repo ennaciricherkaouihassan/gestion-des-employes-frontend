@@ -1,0 +1,41 @@
+<div class="form-container">
+  <div class="modal-background">
+    <div class="modal-content">
+<div class="background-blur"></div>
+<div class="form-container shadow-lg p-3">
+  <form>
+    <div class="mb-3">
+      <h4>Statut</h4>
+      <hr>
+    </div>
+    <!-- Première ligne : Select -->
+    <div class="mb-3 full">
+      <label for="status" class="form-label">Statut</label>
+      <select class="form-select" id="status">
+        <option value="conge">En congé</option>
+        <option value="teletravail">Télétravail</option>
+        <option value="site">Sur site</option>
+      </select>
+    </div>
+
+    <!-- Deuxième ligne : Dates -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="startDate" class="form-label">Date début</label>
+        <input type="date" class="form-control" id="startDate">
+      </div>
+      <div class="col">
+        <label for="endDate" class="form-label">Date fin</label>
+        <input type="date" class="form-control" id="endDate">
+      </div>
+    </div>
+
+    <!-- Troisième ligne : Boutons -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="reset" class="form-label btn btn-outline-secondary">Annuler</button>
+      <button type="submit" class="form-label btn btn-info">Enregistrer</button>
+
+    </div>
+  </form>
+</div>
+    </div></div></div>

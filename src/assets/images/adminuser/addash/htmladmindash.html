@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des employés</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="cssadmindash.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+
+<!-- Main Container -->
+<div class="container-fluid">
+
+
+
+    <!-- Sidebar Section -->
+    <aside class="sidebar">
+        <img class="im" src="Group 133533.png" alt="Logo">
+        <br><br><br>
+
+
+
+        <!-- Navigation Buttons -->
+        <button class="btn w-full  btn-primary ">
+            <img src="key-square.svg" alt="Dashboard Logo" class="btn-logo">
+            <a id="aa" href="htmladmindash.html">Dashboard</a>
+        </button>
+        <br>
+        <button  class="btn w-full btn-primary ">
+           <img src="3d-square 1.svg" alt="Utilisateur Logo" class="btn-logo">
+            <a id="aa"  href="C:\xampp\htdocs\STAGE 3EME ANNEE\admin\admindashboard\adminuser">Utilisateur </a>
+        </button>
+       
+        
+
+        <!-- Admin Info and Logout Button -->
+        <div class="below-sidebar">
+            <div class="container mt-5">
+                <div class="admin-button">
+                    <img src="https://via.placeholder.com/50" alt="Admin Image">
+                    <div class="admin-info">
+                        <h5>Loubna Badra</h5>
+                        <p class="status">RH Admin</p>
+                    </div>
+                </div>
+
+                <button class="btnn  w-full">
+                   <a id="aa" href="Login/html.html">Se déconnecter</a> <img src="logout-svgrepo-com (2) 1.svg" alt="Logout Logo" class="btn-logo">
+                    
+                </button>
+            </div>
+        </div>
+    </aside>
+
+
+
+
+    <!-- Header Message -->
+    <header class="header-message">
+        <h3>Bonjour Loubna 👋🏼</h3>
+    </header>
+
+
+
+    <!-- Status Section -->
+    <section class="statut">
+        <div class="photo-section">
+            <div class="photo-item">
+                <div class="photo-text">Sur site</div>
+                <img src="Group 10.svg" width="70px" alt="Sur site">
+                <p class="pos">10</p>
+            </div>
+            <div class="photo-item">
+                <div class="photo-text">En congé</div>
+                <img src="Group 10 (1).svg" width="70px" alt="En congé">
+                <p class="pos">10</p>
+            </div>
+            <div class="photo-item phg">
+                <div class="photo-text">Télétravail</div>
+                <img src="Group 10 (2).svg" width="70px" alt="Télétravail">
+                <p class="pos">10</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Main Content with Table -->
+    <main class="tableau">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <!-- Title -->
+                <a class="navbar-brand">Tous les employés</a>
+
+                <!-- Search Input -->
+                <div class="w-full mb-3 dropdown">
+                    <label for="search" class="w-full form-label"></label>
+                    <img class="cursor-pointer img-btn" src="search 1.svg" alt="Search Icon">
+                    <input id="search" formControlName="search" type="search" required class="w-full form-label" maxlength="40" placeholder="Rechercher">
+                </div>
+
+                <!-- Date Picker -->
+                <div class="w-full mb-3 dropdown">
+                    <label id="datelabel" class="custom-date"></label>
+                    <input name="date" id="datelabel" type="date" class="w-full form-label">
+                </div>
+
+                <!-- Filter Dropdown -->
+                <div class="w-full mb-3  dropdown">
+                    <a class="nav-link dropdown-toggle filter" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtrer par : <span class="cc">Statut</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Sur site</a></li>
+                        <li><a class="dropdown-item">En congé</a></li>
+                        <li><a class="dropdown-item">Télétravail</a></li>
+                    </ul>
+                </div>
+
+                <!-- Add Employee Button -->
+                <button type="button"   class="btt form-label  btn btn-primary  w-full">
+                    <a id="aa" href="adminadduser/htmladduser.html">Ajoutez un employé +</a> 
+                </button>
+                
+            </div>
+        </nav>
+
+        <!-- Employee Table -->
+        <table class="table">
+            <thead>
+                <tr class="color">
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Équipe</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="trr">
+                    <th scope="row">Ennaciri Cherkaoui</th>
+                    <th scope="row">Hassan</th>
+                    <th scope="row">Dev</th>
+                    <th scope="row">ennaciricherkaouih@gmail.com</th>
+                    <th scope="row">
+                        <span class="badge bg-danger">Congé</span>
+                        <span class="badge bg-warning text-dark">Télétravail</span>
+                        <span class="badge bg-success">Sur site</span>
+                    </th>
+                    <th scope="row">
+                        <a class="image-link" href="page1.html">
+                            <img src="Vector 1.svg" alt="Modifier">
+                        </a>
+                        <a class="image-link" href="page2.html">
+                            <img src="Frame 127.svg" alt="Supprimer">
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </main>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

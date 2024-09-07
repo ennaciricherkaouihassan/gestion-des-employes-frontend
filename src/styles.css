@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4 !important;
+}
+
+button, input {
+  font-family: 'Poppins', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, span {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Liens */
+#aa {
+  text-decoration: none;
+  color: gray;
+}
+
+p {
+  font-size: medium;
+}
+
+/* Placeholder dans les inputs */
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Largeur complète pour les inputs */
+.w-full {
+  font-size: small;
+  margin-left: 15px;
+  color: gray;
+  background-color: rgb(248, 248, 248);
+  border: transparent;
+  border-radius: 7px;
+}

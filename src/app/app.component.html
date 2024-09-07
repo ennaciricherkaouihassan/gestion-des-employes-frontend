@@ -1,0 +1,15 @@
+<!-- Sidebar -->
+<app-sidebar *ngIf="isSidebarVisible"></app-sidebar>
+
+<!-- Main Content Area -->
+<div *ngIf="isSidebarVisible" class="main-content">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Logout Button -->
+<div (click)="logout()"></div>
+<div *ngIf="!isSidebarVisible">
+  <router-outlet></router-outlet>
+</div>
+
+

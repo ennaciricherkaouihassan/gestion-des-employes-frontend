@@ -1,0 +1,266 @@
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.header-message {
+  margin-left: 306px;
+  position: fixed;
+  z-index: 1000;
+  top: 40px;
+  left: 70px;
+  font-weight: bolder;
+}
+.statut {
+  background-position: center;
+  background-image: url("/assets/images/Rectangle 15.svg");
+  border-radius: 20px;
+  width: 968px;
+  height: 120px;
+  position: fixed;
+  top: 100px;
+  left: 370px;
+  opacity: 1;
+}
+.photo-section {
+
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  width: auto;
+}
+
+.photo-item {
+
+  width: auto;
+  height: 80px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+.phg{
+  margin-right:90px ;
+}
+.color{
+  text-decoration: solid;
+}
+.deco{
+  text-decoration: solid;
+
+
+}
+table{
+  font-family: 'Poppins', sans-serif;
+}
+.photo-text {
+  color: grey;
+  position: absolute;
+  top: -10px;
+  left: -10%;
+  transform: translateX(-50%);
+  margin-left: 130px;
+  padding: 10px;
+  width: 90%;
+}
+.pos{
+  font-family: "Poppins", sans-serif;
+  text-decoration: solid;
+
+  height: 25px;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.navbar-brand{
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  height: 80px;
+  padding: 20px;
+}
+.tableau {
+  background-image: url("/assets/images/Rectangle 30 (1).svg");
+  background-position: center;
+  border-radius: 20px;
+  width: 968px;
+  height: auto;
+  padding: 10px;
+  position: fixed;
+  font-family: 'Poppins', sans-serif;
+  top: 290px;
+  left: 370px;
+}
+
+.containt {
+  display: flex;
+  height : auto;
+  top: 10px;
+  box-shadow: 0 0 0 1px rgba(209, 213, 219, 0.5);
+  background-color: rgb(241, 241, 241);
+  width: 200px;
+
+}
+.dropdown{
+  display: flex;
+  height : auto;
+  box-shadow: 0 0 0 1px rgba(209, 213, 219, 0.5);
+  background-color: rgb(241, 241, 241);
+  color: black;
+
+}
+/* Style pour l'image */
+.img-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color:  rgb(241, 241, 241);
+}
+
+.dropdown-item{
+  background-color: rgb(241, 241, 241);
+  font-size: small;
+}
+
+.btnn{width: 200px;
+  color: black;
+  border-radius: 4px;
+}
+
+
+
+.custom-date{
+  border-radius: 7px;
+  top: -20px;
+}
+
+tr{
+  color: grey;
+  font-size: 15px;
+}
+
+span{
+  text-decoration: solid;
+  color:gray;
+}
+
+.filter {
+  text-decoration: solid;
+
+  color: black;
+}
+.trr{
+  color: black;
+}
+
+.page-link{
+  color: black;
+}
+
+p{
+
+  font-size: medium;
+  text-decoration: solid;
+}
+.btt{
+  background-color: rgb(93, 178, 242);
+  color: white;
+  width: 170px;
+
+}
+
+.common {
+  height: 10px;
+  margin: 10px;
+  line-height: 40px;
+  text-decoration-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: small;
+  margin-left: 20px;
+  color: gray;
+  background-color:  rgb(248, 248, 248);;
+  border:transparent;
+  border-radius: 7px;
+}
+
+.im {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+}
+.container {
+
+  gap: 10px;
+}
+.w-full{
+  font-family: "Poppins", sans-serif;
+  font-size: small;
+  margin-left: 15px;
+  color: gray;
+  background-color:  rgb(248, 248, 248);;
+  border:transparent;
+  border-radius: 7px;
+}
+
+.oo{
+  color: #f4f4f4;
+}
+.button-common {
+  display: block;
+  width: 100%; /* Largeur complète du conteneur */
+  height: 20px; /* Hauteur standard pour les boutons */
+  margin-bottom: 10px; /* Espacement entre les éléments */
+  text-align: center;
+  line-height: 40px;
+  font-size: small;
+
+  border-radius: 5px;
+}
+
+.button-common input,
+.button-common a,
+.button-common img {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button-common img {
+  width: 20px; /* Ajustez la taille de l'image */
+  height: 20px;
+  margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.container {
+  padding: 0;
+  width: 100px;
+}
+
+#aa {
+  color: white;
+  text-decoration: none;
+}
+
+.btt {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btt:hover {
+  background-color: #0056b3;
+}
+
+.form-label {
+  width: calc(100% - 40px); /* Pour compenser la taille de l'icône */
+}

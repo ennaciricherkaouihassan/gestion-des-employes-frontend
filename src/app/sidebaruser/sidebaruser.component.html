@@ -1,0 +1,47 @@
+
+
+<div class="container-fluid">
+  <!-- sidebar.component.html -->
+  <aside class="sidebar">
+    <img class="im" src="/assets/images/Group%20133533.png" alt="Logo">
+    <br><br><br>
+
+
+
+    <!-- Navigation Buttons -->
+    <button class="btn aa w-full  btn-primary">
+      <img src="/assets/images/key-square.svg" alt="Dashboard Logo" class="btn-logo">
+      <a id="aa" routerLink="/usedash">Dashboard</a>
+    </button>
+    <br>
+    <button class="btn aa w-full  btn-primary">
+      <img src="/assets/images/3d-square 1.svg" alt="Utilisateur Logo" class="btn-logo">
+      <a id="aa" routerLink="/usestatut">Mon statut</a>
+    </button>
+
+
+
+
+    <!-- Admin Info and Logout Button -->
+    <div class="below-sidebar">
+      <!-- Admin Info and Logout Button -->
+      <div class="container mt-5">
+        <div class="admin-button" (click)="toggleLogoutButton()">
+          <img src="/assets/images/https://via.placeholder.com/50" alt="Admin Image" class="admin-image">
+          <div class="admin-info">
+            <h5>ismail galdi</h5>
+            <p class="status">admin</p>
+          </div>
+        </div>
+
+        <!-- Bouton de déconnexion -->
+        <button *ngIf="isLogoutVisible" id="logout-button" class="btnn aa w-full">
+          <a id="aa" [routerLink]="['login']">Se déconnecter</a>
+          <img src="/assets/images/logout-svgrepo-com (2) 1.svg" alt="Logout Logo" class="btn-logo">
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+

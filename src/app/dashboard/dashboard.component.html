@@ -1,0 +1,126 @@
+<div class="dashboard-content">
+  <!-- Status Section -->
+  <section class="statut">
+    <div class="photo-section">
+      <div class="photo-item">
+        <div class="photo-text">Sur site</div>
+        <img src="/assets/images/Group 10.svg" width="70px" alt="Sur site">
+        <p class="pos">{{ surSite }}</p>
+      </div>
+      <div class="photo-item">
+        <div class="photo-text">En congé</div>
+        <img src="/assets/images/Group 10 (1).svg" width="70px" alt="En congé">
+        <p class="pos">{{ enConge }}</p>
+      </div>
+      <div class="photo-item phg">
+        <div class="photo-text">Télétravail</div>
+        <img src="/assets/images/Group 10 (2).svg" width="70px" alt="Télétravail">
+        <p class="pos">{{ teleTravail }}</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Header Message -->
+  <header class="header-message">
+    <h3 class="mb-3">Bonjour Loubna 👋🏼</h3>
+  </header>
+
+  <!-- Main Content with Table -->
+  <main class="tableau">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <!-- Title -->
+        <a class="navbar-brand">Tous les employés</a>
+
+        <!-- Search Input -->
+       <div class="container w-full mb-3 dropdown">
+         <label for="search" class=" form-label">
+         <img class="cursor-pointer img-btn" src="/assets/images/search 1.svg" alt="Search Icon"></label>
+          <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+
+       </div>
+
+
+
+        <!-- Date Picker -->
+        <div class="w-full mb-3 dropdown">
+          <label  class="custom-date"></label>
+          <input [(ngModel)]="date" (ngModelChange)="filterByDate()" name="date" id="datelabel" type="date" class="w-full form-label">
+        </div>
+
+        <!-- Filter Dropdown -->
+        <div class=" mb-3  dropdown">
+          <select [(ngModel)]="status" (ngModelChange)="filterByStatus()" name="status" class="form-select" id="status"
+                  placeholder="Filtrer par : Statut" required>
+
+            <option value="conge">En congé</option>
+            <option value="teletravail">Télétravail</option>
+            <option value="site">Sur site</option>
+          </select>
+        </div>
+
+
+        <!-- Add Employee Button -->
+        <button (click)="openAddEmployeeModal()"
+                class="btt form-label  btn btn-primary  w-full">
+          <a id="aa" routerLink="/addemploye" href="/src/app/addemploye">Ajoutez un employé +</a>
+
+          <app-addemploye *ngIf="isAddEmployeeModalOpen" (close)="closeAddEmployeeModal()"></app-addemploye>
+        </button>
+      </div>
+    </nav>
+
+
+    <!-- Employee Table -->
+    <table class="table">
+      <thead>
+      <tr class="color">
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Équipe</th>
+        <th scope="col">Email</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of users">
+        <th>{{ item?.lastName }}</th>
+        <th>{{ item?.firstName }}</th>
+        <th>{{ item?.team }}</th>
+        <th>{{ item?.email }}</th>
+        <th>
+          <span  *ngIf="item?.status==='conge'" class="badge oo bg-danger">Congé</span>
+          <span *ngIf="item?.status==='teletravail'" class="badge bg-warning text-dark">Télétravail</span>
+          <span *ngIf="item?.status==='site'" class="badge oo bg-success">Sur site</span>
+        </th>
+        <th>
+          <button (click)="delete(item)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+            </svg>
+          </button>
+        </th>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </main>
+
+</div>

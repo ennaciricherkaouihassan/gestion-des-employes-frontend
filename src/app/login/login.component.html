@@ -1,0 +1,42 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<div class="all">
+
+  <div class="droite">
+    <img src="/assets/images/Subtract.png">
+  </div>
+  <div class="gauche">
+    <img src="/assets/images/Group 133529.png">
+  </div>
+
+
+  <div class="login">
+    <img class="im" src="/assets/images/Group 133533.png" alt="logo"><br>
+    <div class="po">
+      <h3 class="fw-bold">Bonjour!</h3>
+      <h6>Connectez-vous avec votre compte</h6>
+    </div>
+    <form method="POST">
+      <div class="mb-3 containt ">
+        <label for="Email" class="form-label"></label>
+        <img class="cursor-pointer img-btn" src="/assets/images/Group.svg" alt="img">
+        <input id="email" [(ngModel)]="email" name="email" formControlName="email" type="email" autocomplete="email"
+               required class="w-fullfull font-family-primary placeholder:text-gray-400" maxlength="40"
+               placeholder="  Adresse mail">
+      </div>
+
+      <div class="mb-3 containt ">
+        <label for="password" class="form-label"></label>
+        <img class="cursor-pointer img-btn" src="/assets/images/Vector.svg" alt="img">
+        <input id="password" [(ngModel)]="password" name="pass" formControlName="password" type="password"
+               autocomplete="password"
+               required class="w-full font-family-primary placeholder:text-gray-400" maxlength="40"
+               placeholder="Mot de passe">
+      </div>
+      <div class="mb-3">
+        <button type="submit" (click)="login()" class="btn btn-lg btn-primary">Connectez-vous</button>
+        <br></div>
+      <button class="btn-transparent">Mot de pass oublié ?</button>
+    </form>
+  </div>
+</div>
+</form>

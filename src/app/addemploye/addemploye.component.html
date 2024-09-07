@@ -1,0 +1,74 @@
+
+
+<div class="form-container">
+  <div class="modal-background d-flex align-items-center justify-content-center">
+    <div class="modal-content p-4 bg-white rounded shadow">
+      <form>
+        <div class="mb-3 text-center">
+          <h4>Détails de l'employé</h4>
+          <hr>
+
+        </div>
+
+
+
+        <!-- Première ligne : Nom et Prénom -->
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">Prénom</label>
+            <input type="text" [(ngModel)]="user.email" class="form-control" id="firstName" placeholder="Prénom" required>
+          </div>
+          <div class="col">
+            <label for="lastName" class="form-label">Nom</label>
+            <input type="text" [(ngModel)]="user.lastName" class="form-control" id="lastName" placeholder="Nom" required>
+          </div>
+        </div>
+
+
+
+        <!-- Deuxième ligne : Équipe et Gmail -->
+        <div class="row mb-3">
+          <div class="col">
+            <label for="team" class="form-label">Équipe</label>
+            <input type="text" class="form-control" id="team" placeholder="Équipe" required>
+          </div>
+          <div class="col">
+            <label for="email" class="form-label">Gmail</label>
+            <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="email" placeholder="Gmail" required>
+          </div>
+        </div>
+
+
+        <!-- Statut -->
+        <div class="mb-3">
+          <label for="status" class="form-label">Statut</label>
+          <select [(ngModel)]="user.status" name="status" class="form-select" id="status" required>
+            <option value="conge">En congé</option>
+            <option value="teletravail">Télétravail</option>
+            <option value="site">Sur site</option>
+          </select>
+        </div>
+
+
+        <!-- Troisième ligne : Dates -->
+        <div class="row mb-3">
+          <div class="col">
+            <label for="startDate" class="form-label">Date début</label>
+            <input type="date" class="form-control" id="startDate" required>
+          </div>
+          <div class="col">
+            <label for="endDate" class="form-label">Date fin</label>
+            <input type="date" class="form-control" id="endDate" required>
+          </div>
+        </div>
+
+
+        <!-- Troisième ligne : Boutons -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="reset" class="btn btn-outline-secondary">Annuler</button>
+          <button type="submit" class="btn btn-info">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
