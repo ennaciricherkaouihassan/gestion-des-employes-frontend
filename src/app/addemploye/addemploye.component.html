@@ -1,43 +1,35 @@
-
-
 <div class="form-container">
   <div class="modal-background d-flex align-items-center justify-content-center">
     <div class="modal-content p-4 bg-white rounded shadow">
-      <form>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
         <div class="mb-3 text-center">
           <h4>Détails de l'employé</h4>
           <hr>
-
         </div>
-
-
 
         <!-- Première ligne : Nom et Prénom -->
         <div class="row mb-3">
           <div class="col">
             <label for="firstName" class="form-label">Prénom</label>
-            <input type="text" [(ngModel)]="user.email" class="form-control" id="firstName" placeholder="Prénom" required>
+            <input type="text" [(ngModel)]="user.firstName" name="firstName" class="form-control" id="firstName" placeholder="Prénom" required>
           </div>
           <div class="col">
             <label for="lastName" class="form-label">Nom</label>
-            <input type="text" [(ngModel)]="user.lastName" class="form-control" id="lastName" placeholder="Nom" required>
+            <input type="text" [(ngModel)]="user.lastName" name="lastName" class="form-control" id="lastName" placeholder="Nom" required>
           </div>
         </div>
-
-
 
         <!-- Deuxième ligne : Équipe et Gmail -->
         <div class="row mb-3">
           <div class="col">
             <label for="team" class="form-label">Équipe</label>
-            <input type="text" class="form-control" id="team" placeholder="Équipe" required>
+            <input type="text" [(ngModel)]="user.team" name="team" class="form-control" id="team" placeholder="Équipe" required>
           </div>
           <div class="col">
             <label for="email" class="form-label">Gmail</label>
             <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="email" placeholder="Gmail" required>
           </div>
         </div>
-
 
         <!-- Statut -->
         <div class="mb-3">
@@ -49,24 +41,22 @@
           </select>
         </div>
 
-
         <!-- Troisième ligne : Dates -->
         <div class="row mb-3">
           <div class="col">
             <label for="startDate" class="form-label">Date début</label>
-            <input type="date" class="form-control" id="startDate" required>
+            <input type="date" [(ngModel)]="user.startDate" name="startDate" class="form-control" id="startDate" required>
           </div>
           <div class="col">
             <label for="endDate" class="form-label">Date fin</label>
-            <input type="date" class="form-control" id="endDate" required>
+            <input type="date" [(ngModel)]="user.endDate" name="endDate" class="form-control" id="endDate" required>
           </div>
         </div>
 
 
-        <!-- Troisième ligne : Boutons -->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <button type="reset" class="btn btn-outline-secondary">Annuler</button>
-          <button type="submit" class="btn btn-info">Enregistrer</button>
+          <button type="submit" [disabled]="!userForm.valid" class="btn btn-info">Enregistrer</button> <!-- Ensure this is enabled -->
         </div>
       </form>
     </div>
