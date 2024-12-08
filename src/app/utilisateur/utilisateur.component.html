@@ -1,102 +1,90 @@
-
 <header class="header-message">
-    <h3>Bonjour Loubna 👋🏼</h3>
+  <h3>Bonjour Loubna 👋🏼</h3>
 </header>
-
-
 
 
 <!-- Main Content with Table -->
 <main class="tableau">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <!-- Title -->
-            <a class="navbar-brand">Les Utilisateurs</a>
-
-          <!-- Search Input -->
-          <div class="container w-full mb-3 dropdown">
-            <form class="d-flex">
-              <label for="search" class="w-full form-label"></label>
-              <img class="cursor-pointer img-btn" src="/assets/images/search 1.svg" alt="Search Icon">
-              <input class="form-control me-2" id="search" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <!-- Title -->
+      <a class="navbar-brand">Les Utilisateurs</a>
 
 
-          <!-- Filter Dropdown -->
-          <div class="w-full mb-3  dropdown">
-            <a class="nav-link dropdown-toggle filter" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Filtrer par : <span class="cc">Statut</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item">Sur site</a></li>
-              <li><a class="dropdown-item">En congé</a></li>
-              <li><a class="dropdown-item">Télétravail</a></li>
-            </ul>
-          </div>
+      <!-- Search Input -->
+      <div class="container w-full mb-3">
+        <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control"
+               name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+      </div>
+
+      <!-- Role Dropdown -->
+      <div class="container w-full mb-3">
+        <label for="role" class="form-label"></label>
+        <select [(ngModel)]="role" (ngModelChange)="filterByRole()" name="role" class="form-select se form-control"
+                id="role" required>
+          <option [value]="''" [selected]="true">All</option>
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+      </div>
 
 
+      <!-- Add Employee Button -->
+      <button class="container w-full mb-3 form-control hv btn btn-primary" style="background-color: #3b82f6;padding: 9px ; color:white ; font-weight: bold" (click)="openAddEmployeeModal()">
+        Ajoutez un utilisateur +
+      </button>
 
-          <!-- Add Employee Button -->
-          <button (click)="openAddEmployeeModal()"
-                  class="btt form-label  btn btn-primary  w-full">
-            <a id="aa" routerLink="/addemploye" href="/src/app/addemploye">Ajoutez un utilisateur +</a>
+      <!-- Lien redirigeant vers la page 'addemploye' -->
+      <a id="aa" routerLink="/addemploye"></a>
 
-            <app-addemploye *ngIf="isAddEmployeeModalOpen" (close)="closeAddEmployeeModal()"></app-addemploye>
-          </button>
-        </div>
-    </nav>
+      <!-- Modal d'ajout d'employé qui s'affiche en dehors du bouton -->
+      <app-addemploye *ngIf="isAddEmployeeModalOpen" (close)="closeAddEmployeeModal()"></app-addemploye>
+    </div>
+  </nav>
 
-    <!-- Employee Table -->
-    <table class="table">
-        <thead>
-            <tr class="color">
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Équipe</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of users">
-          <th>{{item?.lastName}}</th>
-          <th>{{item?.firstName}}</th>
-          <th>{{item?.team}}</th>
-          <th>{{item?.email}}</th>
-          <th>{{item?.role}}
-
-                    <div class="w-full  dropdown">
-
-                        <select [(ngModel)]="user.role" class="form-select" id="role"class=" nav-link dropdown-toggle filter" id="dropdownMenuLink">
-                            <option class="badge bg-info text-dark dropdown-item" value="admin">Admin</option>
-                            <option class="badge bg-success dropdown-item" value="user">User</option>
-                        </select>
-                    </div>
-                </th>
-                <th scope="row">
-                    <a class="image-link" href="page2.html">
-                        <img src="/assets/images/Frame 127.svg" alt="Supprimer">
-                    </a>
-                </th>
-            </tr>
-        </tbody>
-    </table>
+  <!-- Tableau des employés -->
+  <table class="table">
+    <thead>
+    <tr class="color">
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Équipe</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
 
 
-    <!-- Pagination -->
-    <ul class="pagination justify-content-end">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
+    <!-- Utilisation de la pagination sur le tableau -->
+    <tr *ngFor="let item of users | paginate: { itemsPerPage: 8, currentPage: currentPage }">
+      <td>{{ item?.lastName }}</td>
+      <td>{{ item?.firstName }}</td>
+      <td>{{ item?.team }}</td>
+      <td>{{ item?.email }}</td>
+      <td>
+
+
+          <select [(ngModel)]="item.role" (ngModelChange)="updateRole(item)" name="role" class="form-select" id="role">
+            <option value="ADMIN" class="badge oo bg-success">Admin</option>
+            <option value="USER" class="badge bg-warning text-dark">User</option>
+          </select>
+
+
+      </td>
+      <td>
+        <button (click)="deleteUser(item)" class="btn btn-sm btn-danger">
+          <i class="fas fa-trash"></i></button>
+
+    </tr>
+    </tbody>
+  </table>
+
+
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+  </div>
 </main>
 
 

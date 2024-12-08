@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
 
 
-
 // @ts-ignore
 // @ts-ignore
 @Component({
@@ -15,8 +14,7 @@ import {FormGroup} from "@angular/forms";
 export class LoginComponent {
   email: string = ''
   password: string = ''
-  loginForm!: FormGroup ;
-
+  loginForm!: FormGroup;
 
 
   constructor(private authService: AuthService, private router: Router) {
@@ -24,6 +22,8 @@ export class LoginComponent {
 
 
   login() {
+    console.log(this.email)
+    console.log(this.password)
     this.authService.login(this.email, this.password).subscribe((user) => {
       if (user.role === 'ADMIN') {
         this.router.navigate(['/dashboard']);
@@ -37,6 +37,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       // Handle form submission
       console.log(this.loginForm.value);
+    }
   }
-}}
+}
 

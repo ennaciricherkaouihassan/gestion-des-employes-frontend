@@ -1,9 +1,16 @@
 <!-- Sidebar -->
-<app-sidebar *ngIf="isSidebarVisible"></app-sidebar>
 
 <!-- Main Content Area -->
 <div *ngIf="isSidebarVisible" class="main-content">
-  <router-outlet></router-outlet>
+  <div class="d-flex flex-row">
+    <div class="side">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="flex-grow-1 ">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
 
 <!-- Logout Button -->

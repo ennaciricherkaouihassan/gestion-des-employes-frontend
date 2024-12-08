@@ -45,14 +45,15 @@ body{
 .color{
   text-decoration: solid;
 }
+
 .deco{
   text-decoration: solid;
-
-
 }
-table{
+
+.table{
   font-family: 'Poppins', sans-serif;
 }
+
 .photo-text {
   color: grey;
   position: absolute;
@@ -126,16 +127,17 @@ table{
 
 }
 
-
-
 .custom-date{
   border-radius: 7px;
   top: -20px;
 }
-
+th{
+  color:gray;
+}
 tr{
-  color: grey;
-  font-size: 15px;
+
+    color: grey;
+    font-size: 15px;
 }
 
 span{
@@ -164,8 +166,9 @@ p{
 .btt{
   background-color: rgb(93, 178, 242);
   color: white;
-
-
+  padding : 10px;
+  width: 170px;
+  font-size : 14px;
 }
 
 .common {
@@ -252,17 +255,20 @@ p{
   text-decoration: none;
 }
 
-.btt {
-  background-color: #007bff;
-  border: none;
-  color: white;
-  cursor: pointer;
+.hv {
+  transition:.2s;
 }
 
-.btt:hover {
-  background-color: #0056b3;
+.hv:hover {
+  background-color: #0056b3 !important;
 }
-
+.se{
+  margin-top:-20px;
+}
 .form-label {
   width: calc(100% - 40px); /* Pour compenser la taille de l'icône */
+}
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
 }

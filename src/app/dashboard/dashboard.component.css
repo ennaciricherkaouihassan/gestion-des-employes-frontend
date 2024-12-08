@@ -136,7 +136,9 @@ tr{
   color: grey;
   font-size: 15px;
 }
-
+th{
+  color:gray;
+}
 span{
   text-decoration: solid;
   color:gray;
@@ -163,7 +165,9 @@ p{
 .btt{
   background-color: rgb(93, 178, 242);
   color: white;
+  padding : 10px;
   width: 170px;
+  font-size : 14px;
 
 }
 
@@ -235,7 +239,9 @@ p{
 .dropdown {
   position: relative;
 }
-
+.ss{
+  height: 10px;
+}
 .dropdown-menu {
   width: 100%;
 }
@@ -254,6 +260,7 @@ p{
   background-color: #007bff;
   border: none;
   color: white;
+  width: 20%;
   cursor: pointer;
 }
 
@@ -263,4 +270,11 @@ p{
 
 .form-label {
   width: calc(100% - 40px); /* Pour compenser la taille de l'icône */
+}
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-sm{
+  color: red;
 }

@@ -1,46 +1,64 @@
-
-
-<div class="container-fluid">
-<!-- sidebar.component.html -->
 <aside class="sidebar">
-   <img class="im" src="/assets/images/Group%20133533.png" alt="Logo">
-    <br><br><br>
-
-
+  <img class="im" src="/assets/images/Group%20133533.png" alt="Logo">
+  <br><br><br>
 
   <!-- Navigation Buttons -->
-    <button class="btn aa w-full  btn-primary">
-        <img src="/assets/images/key-square.svg" alt="Dashboard Logo" class="btn-logo">
-        <a id="aa" routerLink="/dashboard">Dashboard</a>
-    </button>
-    <br>
-    <button class="btn aa w-full  btn-primary">
-        <img src="/assets/images/3d-square 1.svg" alt="Utilisateur Logo" class="btn-logo">
-        <a id="aa" routerLink="/utilisateur">Utilisateur</a>
-    </button>
+  <button [ngClass]="{'active': activeButton === 1}"
+          (click)="setActiveButton(1)"
+          class="btn aa w-full custom-button btn-primary"
+          [routerLink]="role === 'USER' ? '/usedash' : '/dashboard'">
+    <img src="/assets/images/key-square.svg" alt="Dashboard Logo" class="btn-logo">
+    Dashboard
+  </button>
+  <br>
 
+  <!-- Bouton pour ADMIN -->
+  <button [ngClass]="{'active': activeButton === 2}"
+          (click)="setActiveButton(2)"
+          *ngIf="role === 'ADMIN'"
+          class="btn aa w-full btn-primary"
+          [routerLink]="'/utilisateur'">
+    <img src="/assets/images/3d-square 1.svg" alt="Utilisateur Logo" class="btn-logo">
+    Utilisateur
+  </button>
 
+  <!-- Bouton pour USER -->
+  <button [ngClass]="{'active': activeButton === 3}"
+          (click)="isUsestatutModalOpen"
+          *ngIf="role === 'USER' && isUsestatutModalOpen"
+          class="btn aa w-full btn-primary"
+          [routerLink]="'/usestatut'">
+    <img src="/assets/images/3d-square 1.svg" alt="Utilisateur Logo" class="btn-logo">
+    Mon statut
+  </button>
 
-
-  <!-- Admin Info and Logout Button -->
   <div class="below-sidebar">
-    <!-- Admin Info and Logout Button -->
     <div class="container mt-5">
-    <div class="admin-button" (click)="toggleLogoutButton()">
-        <img src="/assets/images/https://via.placeholder.com/50" alt="Admin Image" class="admin-image">
+      <div class="admin-button" (click)="toggleLogoutButton()">
+
+        <!-- Affichage de la photo de profil cliquable pour la modification -->
+        <form>
+          <input type="file" #fileInput style="display: none;" (change)="onFileSelected($event)" accept="image/*">
+          <img [src]="user?.avatar" alt="User Image" class="admin-image" (click)="triggerFileInput()"
+               style="cursor: pointer;">
+        </form>
+
+
         <div class="admin-info">
-          <h5>Loubna Badra</h5>
-          <p class="status">RH Admin</p>
+          <h5>{{ user?.firstName }} {{ user?.lastName }}</h5>
+          <p class="status">
+            {{ role === 'ADMIN' ? 'RH Admin' : 'User' }}
+          </p>
         </div>
       </div>
 
       <!-- Bouton de déconnexion -->
-      <button *ngIf="isLogoutVisible" id="logout-button" class="btnn aa w-full">
-        <a id="aa" [routerLink]="['login']">Se déconnecter</a>
+      <button [ngClass]="{'active': activeButton === 4}"
+              (click)="logout()"
+              *ngIf="isLogoutVisible" id="logout-button" class="btnn aa w-full">
+        <a id="aa">Se déconnecter</a>
         <img src="/assets/images/logout-svgrepo-com (2) 1.svg" alt="Logout Logo" class="btn-logo">
       </button>
-    </div>    </div>
+    </div>
+  </div>
 </aside>
-</div>
-
-

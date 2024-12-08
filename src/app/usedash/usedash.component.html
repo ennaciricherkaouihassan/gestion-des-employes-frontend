@@ -29,19 +29,24 @@
   <!-- Main Content with Table -->
   <main class="tableau">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
+      <div class=" width-full d-flex flex-row align-items-center justify-content-between ">
         <!-- Title -->
         <a class="navbar-brand">Tous les employés</a>
 
         <!-- Search Input -->
-        <div class="container w-full mb-3 dropdown">
-          <form class="d-flex">
-            <label for="search" class="w-full form-label"></label>
-            <!--img class="cursor-pointer img-btn" src="/assets/images/search 1.svg" alt="Search Icon">-->
-            <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
-          </form>
-        </div>
+        <div class="d-flex flex-row gap-2">
 
+          <div>
+            <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control me-2"
+                   name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+          </div>
+
+          <button (click)="changeMonStatus()"
+                  class="form-control btt btn btn-primary">
+            Mon status
+          </button>
+
+        </div>
 
       </div>
     </nav>
@@ -59,33 +64,25 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of users">
-        <th>{{ item?.lastName }}</th>
-        <th>{{ item?.firstName }}</th>
-        <th>{{ item?.team }}</th>
-        <th>{{ item?.email }}</th>
-        <th>
-          <span  *ngIf="item?.status==='conge'" class="badge oo bg-danger">Congé</span>
+      <tr *ngFor="let item of users | paginate: { itemsPerPage: 5, currentPage: currentPage }">
+        <td>{{ item?.lastName }}</td>
+        <td>{{ item?.firstName }}</td>
+        <td>{{ item?.team }}</td>
+        <td>{{ item?.email }}</td>
+        <td>
+          <span *ngIf="item?.status==='conge'" class="badge oo bg-danger">Congé</span>
           <span *ngIf="item?.status==='teletravail'" class="badge bg-warning text-dark">Télétravail</span>
           <span *ngIf="item?.status==='site'" class="badge oo bg-success">Sur site</span>
-        </th>
+        </td>
       </tr>
       </tbody>
     </table>
 
 
-    <!-- Pagination -->
-    <ul class="pagination justify-content-end">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Prev</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
+    <div class="pagination-container">
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
   </main>
 
 </div>
+<app-userstatut></app-userstatut>

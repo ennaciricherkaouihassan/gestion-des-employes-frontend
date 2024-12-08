@@ -30,6 +30,32 @@ body, h1, h2, h3, h4, h5, h6, p, span{
   top: 0;
   left: 0;
 }
+.custom-button {
+  display: inline-block;
+  width: 100%; /* Rendre le bouton large */
+  height: 100%; /* Rendre le bouton aussi haut que son conteneur */
+  padding: 20px; /* Ajouter du padding pour agrandir la zone cliquable */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+}
+
+.custom-button label {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  cursor: pointer; /* Pointer pour indiquer que l'utilisateur peut cliquer */
+}
+button.active {
+  background-color: lightskyblue;
+  color: white;
+}
 .below-sidebar {
   width: 20%;
   bottom: 20px;

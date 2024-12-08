@@ -14,16 +14,33 @@ export class UsedashComponent implements OnInit {
 
 
   // Déclarez la propriété 'users' comme un tableau d'objets 'User'
-  users: User[] = [];
   surSite: number = 0;
   teleTravail: number = 0;
   enConge: number = 0;
   status: string = '';
-  date: string ='';
-  firstName: String ='';
-  lastName: String='';
-  search: String='';
+  date: string = '';
+  firstName: String = '';
+  lastName: String = '';
+  search: String = '';
+  currentPage = 1;
+
   constructor(private userService: UserService) {
+  }
+
+  get showStatusDialog(): boolean {
+    return this.userService.showStatusDialog;
+  }
+
+  set showStatusDialog(value: boolean) {
+    this.userService.showStatusDialog = value;
+  }
+
+  get users(): User[] {
+    return this.userService.users;
+  }
+
+  set users(value: User[]) {
+    this.userService.users = value;
   }
 
   ngOnInit(): void {
@@ -46,20 +63,37 @@ export class UsedashComponent implements OnInit {
 
     });
 
-      this.userService.getUsers()
-        .subscribe(res => {
-          this.users = res
-          console.log(res)
-        })
+    this.userService.getUsers()
+      .subscribe(res => {
+        this.users = res
+        console.log(res)
+      })
 
 
   }
 
-
+  changeMonStatus() {
+    this.showStatusDialog = true
+  }
 
 
   findByFirstNameAndLastName() {
-    console.log(this.firstName)
-    console.log(this.lastName)
+    if (this.search && this.search?.length > 1) {
+      console.log(this.search)
+      // @ts-ignore
+      this.userService.searchByCriteria(this.search)
+        .subscribe((data: User[]) => {
+          this.users = data;
+        });
+    } else {
+      this.findAll()
+    }
+
+  }
+
+  private findAll() {
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+    });
   }
 }

@@ -249,7 +249,12 @@ p{
   color: white;
   text-decoration: none;
 }
-
+th{
+  color:gray;
+}
+.dd{
+  align-item : right ;
+}
 .btt {
   background-color: #007bff;
   border: none;
@@ -263,4 +268,8 @@ p{
 
 .form-label {
   width: calc(100% - 40px); /* Pour compenser la taille de l'icône */
+}
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
 }

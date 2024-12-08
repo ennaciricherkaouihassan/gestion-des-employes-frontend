@@ -27,8 +27,8 @@ export class AppComponent implements OnInit {
 
   canActivate(): void {
     const role = this.authService.getRole();
-    if (role === 'ADMIN') {
-      this.router.navigate(['/dashboard']);
+    if (role !== 'USER' &&  role !== 'ADMIN' ){
+      this.router.navigate(['/login']);
     }
   }
 

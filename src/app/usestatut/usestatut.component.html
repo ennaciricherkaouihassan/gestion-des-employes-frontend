@@ -1,41 +1,42 @@
-<div class="form-container">
-  <div class="modal-background">
-    <div class="modal-content">
-<div class="background-blur"></div>
-<div class="form-container shadow-lg p-3">
-  <form>
+<p-dialog [(visible)]="showStatusDialog" [modal]="true" [style]="{ width: '60vw' }"
+          [draggable]="false"
+          [resizable]="false">
+
+  <div class=" p-2 bg-white rounded ">
+    <h5>Statut</h5>
+    <hr>
+    <br>
+
+
+    <!-- Statut -->
     <div class="mb-3">
-      <h4>Statut</h4>
-      <hr>
-    </div>
-    <!-- Première ligne : Select -->
-    <div class="mb-3 full">
       <label for="status" class="form-label">Statut</label>
-      <select class="form-select" id="status">
+      <select [(ngModel)]="user.status" name="status" class="form-select" id="status" required>
         <option value="conge">En congé</option>
         <option value="teletravail">Télétravail</option>
         <option value="site">Sur site</option>
       </select>
     </div>
 
-    <!-- Deuxième ligne : Dates -->
+
+    <!-- Troisième ligne : Dates -->
     <div class="row mb-3">
       <div class="col">
         <label for="startDate" class="form-label">Date début</label>
-        <input type="date" class="form-control" id="startDate">
+        <input type="date" [(ngModel)]="user.startDate" name="startDate" class="form-control" id="startDate" required>
       </div>
       <div class="col">
         <label for="endDate" class="form-label">Date fin</label>
-        <input type="date" class="form-control" id="endDate">
+        <input type="date" [(ngModel)]="user.endDate" name="endDate" class="form-control" id="endDate" required>
       </div>
     </div>
 
-    <!-- Troisième ligne : Boutons -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button type="reset" class="form-label btn btn-outline-secondary">Annuler</button>
-      <button type="submit" class="form-label btn btn-info">Enregistrer</button>
-
+      <button (click)="cancel()" type="reset" data-bs-dismiss="modal" class="btn btn-outline-secondary">Annuler</button>
+      <button (click)="onSubmit()" type="submit" class="btn btn-info">Enregistrer</button>
+      <!-- Ensure this is enabled -->
     </div>
-  </form>
-</div>
-    </div></div></div>
+  </div>
+
+
+</p-dialog>
