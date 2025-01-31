@@ -50,3 +50,10 @@ input:focus {
 .width-full {
   width: 100% !important;
 }
+.p-calendar .p-inputtext {
+  flex: 1 1 auto;
+  width: 1%;
+  height: 38.5px;
+  border-color:lightgray;
+  padding:10px;
+}

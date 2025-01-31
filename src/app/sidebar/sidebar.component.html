@@ -34,7 +34,7 @@
 
   <div class="below-sidebar">
     <div class="container mt-5">
-      <div class="admin-button" (click)="toggleLogoutButton()">
+      <div style="border: none;" class="admin-button form-select" (click)="toggleLogoutButton()">
 
         <!-- Affichage de la photo de profil cliquable pour la modification -->
         <form>
@@ -56,7 +56,7 @@
       <button [ngClass]="{'active': activeButton === 4}"
               (click)="logout()"
               *ngIf="isLogoutVisible" id="logout-button" class="btnn aa w-full">
-        <a id="aa">Se déconnecter</a>
+        <a  id="aa">Se déconnecter</a>
         <img src="/assets/images/logout-svgrepo-com (2) 1.svg" alt="Logout Logo" class="btn-logo">
       </button>
     </div>

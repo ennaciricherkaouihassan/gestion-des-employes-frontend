@@ -34,19 +34,19 @@
         <a class="navbar-brand">Tous les employés</a>
 
         <!-- Search Input -->
-        <div class="container w-full mb-3">
+        <div class="search filtrer">
           <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control"
                  name="search" id="search" type="search" placeholder="Search" aria-label="Search">
         </div>
 
-        <!-- Date Picker -->
-        <div class="container w-full mb-3">
-          <p-calendar [(ngModel)]="date" placeholder="filter by date" (ngModelChange)="filterByDate()"
+        <!-- Date Picker-->
+        <div class="filtrerdate" >
+          <p-calendar   [(ngModel)]="date" placeholder="filter by date" class="filtrerdate" (ngModelChange)="filterByDate()"
                       name="date"></p-calendar>
         </div>
 
         <!-- Status Dropdown -->
-        <div class="container w-full mb-3">
+        <div class="filtrer" >
           <select [(ngModel)]="status" (ngModelChange)="filterByStatus()" name="status" class="form-select form-control"
                   id="status" required>
             <option [value]="''" selected>All</option>
@@ -56,12 +56,10 @@
           </select>
         </div>
 
-        <!-- Date Picker
-               <div class="container w-full mb-3 dropdown">
+              <!-- <div class="container w-full mb-3 dropdown">
                  <label class="custom-date"></label>
-                 <input [(ngModel)]="date"
-                        class=" form-control me-2">
-               </div> -->
+                 <input [(ngModel)]="date" type="date" class=" form-control me-2">
+               </div>-->
 
         <button class="container ss w-full mb-3 " (click)="openAddEmployeeModal()"
                 class="form-control btt btn btn-primary">

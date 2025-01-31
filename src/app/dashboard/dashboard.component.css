@@ -277,4 +277,20 @@ p{
 }
 .btn-sm{
   color: red;
+
+}
+.filtrer{
+  padding-right:15px;
+}
+.search{
+  width:150px;
+  border-color:lightgray;
+}
+.filtrerdate{
+  width:140px;
+  height:40px;padding:1px;
+
+}
+input[placeholder="Search"]{
+  color:black;
 }

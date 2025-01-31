@@ -17,7 +17,6 @@ export class UtilisateurComponent implements OnInit {
   search: string = '';
   currentPage: number = 1;
   role: string = '';
-  isAddEmployeeModalOpen: any;
 
   constructor(private userService: UserService) {
   }
@@ -71,13 +70,22 @@ export class UtilisateurComponent implements OnInit {
   closeModal(): void {
     this.close.emit();
   }
-
-  openAddEmployeeModal() {
-
+  get selectedUser(): User {
+    return this.userService.selectedUser;
   }
 
+  set selectedUser(value: User) {
+    this.userService.selectedUser = value;
+  }
+  openAddEmployeeModal() {
+    this.selectedUser = new User()
+    this.isAddEmployeeModalOpen = true;
+  }
+  set isAddEmployeeModalOpen(value: boolean) {
+    this.userService.isAddEmployeeModalOpen = value;
+  }
   closeAddEmployeeModal() {
-
+    this.isAddEmployeeModalOpen = false;
   }
 
   updateRole(item: User) {

@@ -14,7 +14,7 @@
       <!-- Search Input -->
       <div class="container w-full mb-3">
         <input [(ngModel)]="search" (ngModelChange)="findByFirstNameAndLastName()" class="form-control"
-               name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+               name="search" id="search" style="color:black" type="search" placeholder="Search" aria-label="Search">
       </div>
 
       <!-- Role Dropdown -->
@@ -30,15 +30,16 @@
 
 
       <!-- Add Employee Button -->
-      <button class="container w-full mb-3 form-control hv btn btn-primary" style="background-color: #3b82f6;padding: 9px ; color:white ; font-weight: bold" (click)="openAddEmployeeModal()">
+      <button class="container w-full mb-3 form-control hv btn btn-primary" style="background-color: #3b82f6;padding: 9px ; color:white ; font-size :14px" (click)="openAddEmployeeModal()">
         Ajoutez un utilisateur +
+
       </button>
 
       <!-- Lien redirigeant vers la page 'addemploye' -->
       <a id="aa" routerLink="/addemploye"></a>
 
       <!-- Modal d'ajout d'employé qui s'affiche en dehors du bouton -->
-      <app-addemploye *ngIf="isAddEmployeeModalOpen" (close)="closeAddEmployeeModal()"></app-addemploye>
+
     </div>
   </nav>
 
@@ -66,16 +67,17 @@
       <td>
 
 
-          <select [(ngModel)]="item.role" (ngModelChange)="updateRole(item)" name="role" class="form-select" id="role">
-            <option value="ADMIN" class="badge oo bg-success">Admin</option>
+          <select [(ngModel)]="item.role" (ngModelChange)="updateRole(item)" name="role" class="form-select ww" id="role">
+            <option value="ADMIN" class="badge  bg-success">Admin</option>
             <option value="USER" class="badge bg-warning text-dark">User</option>
           </select>
 
 
       </td>
       <td>
-        <button (click)="deleteUser(item)" class="btn btn-sm btn-danger">
-          <i class="fas fa-trash"></i></button>
+        <button (click)="deleteUser(item)" class="btn btn-sm ">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
 
     </tr>
     </tbody>
